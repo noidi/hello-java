@@ -10,6 +10,7 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class Hello
 {
+
     public static void main(String[] args)
     {
         List<Message> ms = new ArrayList<>();
@@ -20,4 +21,5 @@ public class Hello
         get("/", (req, res) -> new ModelAndView(p, "hello.mustache"),
             new MustacheTemplateEngine());
     }
+
 }
