@@ -8,7 +8,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.fluent.Request;
 import org.junit.Test;
 
-public class HelloTest {
+public class HelloIT {
 
     @Test
     public void foo() throws ClientProtocolException, IOException {
