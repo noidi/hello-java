@@ -1,5 +1,10 @@
 #!/bin/bash
 set -eu
 cd "$(dirname "$BASH_SOURCE")"
-nohup java -jar hello.jar >hello.out 2>hello.err </dev/null &
-echo "$!" >hello.pid
+if [[ -f hello.pid ]] && ps "$(cat hello.pid)" >/dev/null; then
+  echo 'Already running.' >&2
+else
+  nohup java -jar hello.jar >hello.out 2>hello.err </dev/null &
+  echo "$!" >hello.pid
+  echo 'Starting...' >&2
+fi
