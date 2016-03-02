@@ -1,7 +1,10 @@
 #!/bin/bash
 set -eu
 cd "$(dirname "$BASH_SOURCE")"
-if [[ -f hello.pid ]]; then
+if [[ -f hello.pid ]] && ps "$(cat hello.pid)" >/dev/null; then
+  echo 'Stopping...' >&2
   kill "$(cat hello.pid)"
-  rm hello.pid
+else
+  echo 'Already stopped.' >&2
 fi
+rm -f hello.pid

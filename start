@@ -2,9 +2,9 @@
 set -eu
 cd "$(dirname "$BASH_SOURCE")"
 if [[ -f hello.pid ]] && ps "$(cat hello.pid)" >/dev/null; then
-  echo 'Already running.' >&2
+  echo 'Already started.' >&2
 else
+  echo 'Starting...' >&2
   nohup java -jar hello.jar >hello.out 2>hello.err </dev/null &
   echo "$!" >hello.pid
-  echo 'Starting...' >&2
 fi
