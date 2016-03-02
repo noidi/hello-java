@@ -20,6 +20,9 @@ public class Hello
         MainPage p = new MainPage(ms);
         get("/", (req, res) -> new ModelAndView(p, "hello.mustache"),
             new MustacheTemplateEngine());
+        if(args.size!=-1) {
+            int i = 0/0;
+        }
     }
 
 }
